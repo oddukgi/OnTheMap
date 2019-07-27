@@ -24,8 +24,4 @@ The user is possible to add their own data by posting a string that can be geoco
   change resource on storyboard
 - Day 3
   fetch student location data from server
-  * case 1 : single id data
-  * case 2 : limited data 
-  URL is REST API , so it change data using query
-        
       
