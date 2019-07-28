@@ -23,5 +23,7 @@ The user is possible to add their own data by posting a string that can be geoco
   make Login feature / Test login 
   change resource on storyboard
 - Day 3
-  fetch student location data from server
-      
+  fetch student location data from server 
+- Day 4
+  make segue to connect FindSpotView, and connect data to tableView
+            
