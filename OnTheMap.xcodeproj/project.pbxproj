@@ -8,8 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8802C0E722EB02B20057368E /* UserLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8802C0E622EB02B20057368E /* UserLoginResponse.swift */; };
+		8803352322EC39980001B2A9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8803352222EC39980001B2A9 /* UIViewController+Extension.swift */; };
 		8814200A22E732810088A0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8814200922E732810088A0B4 /* Assets.xcassets */; };
-		881CFD6622E9F44D0026F5BF /* RequestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881CFD6522E9F44D0026F5BF /* RequestHelper.swift */; };
+		881CFD6622E9F44D0026F5BF /* StudentLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881CFD6522E9F44D0026F5BF /* StudentLocations.swift */; };
 		8867415622EB40BD00811D7D /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867415522EB40BD00811D7D /* StudentLocation.swift */; };
 		888AAE1922EB26390049EF10 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888AAE1822EB26390049EF10 /* MapViewController.swift */; };
 		888AAE1B22EB26720049EF10 /* SpotListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888AAE1A22EB26720049EF10 /* SpotListViewController.swift */; };
@@ -25,8 +26,9 @@
 
 /* Begin PBXFileReference section */
 		8802C0E622EB02B20057368E /* UserLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginResponse.swift; sourceTree = "<group>"; };
+		8803352222EC39980001B2A9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		8814200922E732810088A0B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		881CFD6522E9F44D0026F5BF /* RequestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHelper.swift; sourceTree = "<group>"; };
+		881CFD6522E9F44D0026F5BF /* StudentLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocations.swift; sourceTree = "<group>"; };
 		8867415522EB40BD00811D7D /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
 		888AAE1822EB26390049EF10 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		888AAE1A22EB26720049EF10 /* SpotListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				888AAE1A22EB26720049EF10 /* SpotListViewController.swift */,
 				888AAE1C22EB26B80049EF10 /* FindSpotViewController.swift */,
 				888AAE1E22EB26CB0049EF10 /* FinishViewController.swift */,
+				8803352222EC39980001B2A9 /* UIViewController+Extension.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -86,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				888F25FE22E9B14E00721EFF /* UdacityClient.swift */,
-				881CFD6522E9F44D0026F5BF /* RequestHelper.swift */,
+				881CFD6522E9F44D0026F5BF /* StudentLocations.swift */,
 				8802C0E622EB02B20057368E /* UserLoginResponse.swift */,
 			);
 			path = Request;
@@ -194,12 +197,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8803352322EC39980001B2A9 /* UIViewController+Extension.swift in Sources */,
 				888AAE1B22EB26720049EF10 /* SpotListViewController.swift in Sources */,
 				8867415622EB40BD00811D7D /* StudentLocation.swift in Sources */,
 				888F25FF22E9B14E00721EFF /* UdacityClient.swift in Sources */,
 				888AAE1D22EB26B80049EF10 /* FindSpotViewController.swift in Sources */,
 				8802C0E722EB02B20057368E /* UserLoginResponse.swift in Sources */,
-				881CFD6622E9F44D0026F5BF /* RequestHelper.swift in Sources */,
+				881CFD6622E9F44D0026F5BF /* StudentLocations.swift in Sources */,
 				888AAE1F22EB26CB0049EF10 /* FinishViewController.swift in Sources */,
 				888F25EB22E9A7AB00721EFF /* LoginViewController.swift in Sources */,
 				889FD20022E712D900426521 /* ViewController.swift in Sources */,
