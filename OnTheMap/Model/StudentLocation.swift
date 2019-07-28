@@ -7,27 +7,34 @@
 //
 
 import Foundation
-import MapKit
-//"createdAt"
-//"firstName"
-//"lastName":
-//"latitude":
-//"longitude"
-//"mapString"
-//"mediaURL":
-//"objectId":
-//"uniqueKey"
-//"updatedAt"
+
 
 struct StudentLocation: Codable {
+    
     let createdAt: String
     let firstName: String
     let lastName: String
-    let mapString: String
-    let mediaURL: String
-    let objectId: String
-    let uniqueKey: String
-    let updatedAt: String
     let latitude: Float
     let longitude: Float
+    let mapString: String
+    let mediaURL: String
+    let objectID: String
+    let uniqueKey: String
+    let updatedAt: String
+    
+    enum CodingKeys: String, CodingKey {
+        case createdAt = "createdAt"
+        case firstName = "firstName"
+        case lastName = "lastName"
+        case latitude = "latitude"
+        case longitude = "longitude"
+        case mapString = "mapString"
+        case mediaURL = "mediaURL"
+        case objectID = "objectId"
+        case uniqueKey = "uniqueKey"
+        case updatedAt = "updatedAt"
+        
+    }
+
 }
+

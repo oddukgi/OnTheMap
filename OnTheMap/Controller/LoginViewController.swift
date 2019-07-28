@@ -56,16 +56,6 @@ class LoginViewController: UIViewController {
     @IBAction func signUpViaWebsite(_ sender: Any) {
         UIApplication.shared.open(URL(string: "https://auth.udacity.com/sign-up")!, options: [:], completionHandler: nil)
     }
-    /*
-    
-     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 
   func handleLoginResponse(success: Bool, error: Error?){
@@ -75,7 +65,8 @@ class LoginViewController: UIViewController {
           setLoggingIn(true)
       }
       else {
-         showLoginFailure(message: error?.localizedDescription ?? "")
+    
+         showLoginFailure(message: error?.localizedDescription ?? "Wrong Email or Password!!")
          setLoggingIn(false)
       }
     }

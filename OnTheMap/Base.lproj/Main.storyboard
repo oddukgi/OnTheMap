@@ -143,6 +143,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="RTQ-GL-qnB" userLabel="Activity Indicator">
+                                <rect key="frame" x="197" y="378" width="20" height="20"/>
+                            </activityIndicatorView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="xTx-Sf-oyK">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </mapView>
@@ -150,6 +153,8 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="xTx-Sf-oyK" secondAttribute="trailing" id="3cA-7s-3E2"/>
+                            <constraint firstItem="RTQ-GL-qnB" firstAttribute="centerX" secondItem="xTx-Sf-oyK" secondAttribute="centerX" id="87c-qy-YJI"/>
+                            <constraint firstItem="RTQ-GL-qnB" firstAttribute="top" secondItem="0vm-UD-Ks2" secondAttribute="top" constant="290" id="F7Y-Xp-vZF"/>
                             <constraint firstItem="xTx-Sf-oyK" firstAttribute="bottom" secondItem="0vm-UD-Ks2" secondAttribute="bottom" id="JXf-ce-AO6"/>
                             <constraint firstItem="xTx-Sf-oyK" firstAttribute="leading" secondItem="i7l-Uh-FFz" secondAttribute="leading" id="Y5G-8s-7Pk"/>
                             <constraint firstItem="xTx-Sf-oyK" firstAttribute="top" secondItem="0vm-UD-Ks2" secondAttribute="top" id="oYf-qJ-RUJ"/>
@@ -158,7 +163,11 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="icon_mapview-selected" id="6Id-ZU-yHK"/>
                     <navigationItem key="navigationItem" id="QPx-cM-Uf4">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="M1k-C7-cF9"/>
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="M1k-C7-cF9">
+                            <connections>
+                                <action selector="logoutTapped:" destination="YII-5C-WKV" id="Ov6-xw-Gnz"/>
+                            </connections>
+                        </barButtonItem>
                         <rightBarButtonItems>
                             <barButtonItem title="Add" image="icon_addpin" id="R2g-iF-bKE">
                                 <connections>
@@ -173,18 +182,19 @@
                         </rightBarButtonItems>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="RTQ-GL-qnB" id="jBU-wc-Rtn"/>
                         <outlet property="mapView" destination="xTx-Sf-oyK" id="FF2-d7-6xW"/>
-                        <segue destination="dj1-ae-5MZ" kind="show" identifier="addSpot" id="zxX-a6-Ke6"/>
+                        <segue destination="dj1-ae-5MZ" kind="show" identifier="addSpot" id="3kt-zt-x58"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0p-Lq-bHr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1176.8115942028987" y="-850.44642857142856"/>
         </scene>
-        <!--Find Spot-->
+        <!--Find Spot Controller-->
         <scene sceneID="geK-xw-OO3">
             <objects>
-                <viewController id="dj1-ae-5MZ" userLabel="Find Spot" customClass="FindSpotViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dj1-ae-5MZ" userLabel="Find Spot Controller" customClass="FindSpotViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fFp-m5-RGE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -333,11 +343,14 @@
         <!--Spot List View Controller-->
         <scene sceneID="qgz-9n-YKV">
             <objects>
-                <viewController id="qR0-cP-ThH" userLabel="Spot List View Controller" customClass="PinListViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qR0-cP-ThH" userLabel="Spot List View Controller" customClass="SpotListViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dgK-SS-Nfm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="HKd-5a-90q" userLabel="Activity Indicator">
+                                <rect key="frame" x="197" y="423" width="20" height="20"/>
+                            </activityIndicatorView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="RpE-Mv-yLv">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -375,9 +388,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="HKd-5a-90q" firstAttribute="top" secondItem="Wyf-tO-Qhz" secondAttribute="top" constant="335" id="4kC-xd-GD6"/>
                             <constraint firstItem="RpE-Mv-yLv" firstAttribute="leading" secondItem="Wyf-tO-Qhz" secondAttribute="leading" id="CLh-Y9-wHT"/>
                             <constraint firstItem="RpE-Mv-yLv" firstAttribute="trailing" secondItem="Wyf-tO-Qhz" secondAttribute="trailing" id="UBH-xY-YSm"/>
                             <constraint firstItem="Wyf-tO-Qhz" firstAttribute="bottom" secondItem="RpE-Mv-yLv" secondAttribute="bottom" id="jrO-Ey-X04"/>
+                            <constraint firstItem="HKd-5a-90q" firstAttribute="centerX" secondItem="RpE-Mv-yLv" secondAttribute="centerX" id="kkQ-GN-ZVV"/>
                             <constraint firstItem="RpE-Mv-yLv" firstAttribute="top" secondItem="Wyf-tO-Qhz" secondAttribute="top" id="nXp-ey-TF9"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wyf-tO-Qhz"/>
@@ -386,18 +401,20 @@
                     <navigationItem key="navigationItem" id="86P-UC-so8">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="nTA-BS-YvO" userLabel="Logout">
                             <connections>
-                                <action selector="logoutButtonTapped:" destination="qR0-cP-ThH" id="rvM-5S-a7P"/>
+                                <action selector="logoutTapped:" destination="qR0-cP-ThH" id="prW-3l-CjQ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Add Pin" image="icon_pin" id="6tl-7t-Evt">
                             <connections>
-                                <action selector="addPinButtonTapped:" destination="qR0-cP-ThH" id="Wlz-yA-Kf6"/>
+                                <action selector="addSpotTapped:" destination="qR0-cP-ThH" id="MUh-L9-9rr"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="tableView" destination="RpE-Mv-yLv" id="g3x-BN-mLA"/>
+                        <outlet property="addSpotButton" destination="6tl-7t-Evt" id="IwP-Ev-fAM"/>
+                        <outlet property="logoutButton" destination="nTA-BS-YvO" id="Axo-aB-2Le"/>
+                        <outlet property="tableView" destination="RpE-Mv-yLv" id="dZ1-iY-Beu"/>
                         <segue destination="dj1-ae-5MZ" kind="show" identifier="addSpot" id="W85-3z-Lro"/>
                     </connections>
                 </viewController>
@@ -416,6 +433,6 @@
         <image name="icon_world" width="52" height="67"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zxX-a6-Ke6"/>
+        <segue reference="W85-3z-Lro"/>
     </inferredMetricsTieBreakers>
 </document>

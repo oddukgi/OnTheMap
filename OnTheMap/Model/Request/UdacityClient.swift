@@ -20,7 +20,8 @@ class UdacityClient {
         static let base = "https://onthemap-api.udacity.com/v1/"
         
         case createSessionId
-        case getStudentLocation
+        case getStudentLocation(Int)
+        case getOneStduentLocation(String)
         case postStudentLocation
         case updateStudentLocation(String)
         case getUserData
@@ -30,7 +31,8 @@ class UdacityClient {
             switch self {
                 
             case .createSessionId: return Endpoints.base + "session"
-            case .getStudentLocation: return Endpoints.base + "StudentLocation?order=-updatedAt&limit=100"
+            case .getStudentLocation(let index): return Endpoints.base + "StudentLocation" + "?limit=100&skip=\(index)&order=-updatedAt"
+            case .getOneStduentLocation(let uniqueKey): return Endpoints.base + "StudentLocation?uniqueKey=\(uniqueKey)"
             case .postStudentLocation: return Endpoints.base + "StudentLocation"
             case .updateStudentLocation(let objectID): return Endpoints.base + "StudentLocation/\(objectID)"
             case .getUserData: return Endpoints.base + "users/" + Auth.keyAccount
@@ -85,7 +87,76 @@ class UdacityClient {
     
     // https://onthemap-api.udacity.com/v1/users/<user_id>
     
-    class func getUserData() {
+    class func getStudentLocation(singleStudent: Bool, completion: @escaping ([StudentLocation]?, Error?) -> Void) {
+        
+        let session = URLSession.shared
+        var url = URL(string: "www.google.com")!
+       
+        if singleStudent {
+            url = Endpoints.getOneStduentLocation("1234").url
+        } else {
+            url = Endpoints.getStudentLocation(0).url
+        }
+        
+        print("URL: \(url.absoluteString)")
+        let task = session.dataTask(with: url) { data, response, error in
+            
+         guard let data = data else {
+             DispatchQueue.main.async {
+                 completion([], error)
+             }
+             return
+         }
+            
+        let decoder = JSONDecoder()
+            
+            do {
+                let requestObject = try decoder.decode(StudentLocations.self, from: data)
+                DispatchQueue.main.async {
+                    completion(requestObject.results, nil)
+                }
+                
+            } catch {
+                DispatchQueue.main.async {
+                    completion([], error)
+                    print(error.localizedDescription)
+                }
+            }
+        }
+        
+        task.resume()
+    }
+    
+    class func deleteLoginSession(completion: @escaping (Bool, Error?) -> Void){
+        let url = Endpoints.logout.url
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        
+        var xsrfCookie: HTTPCookie? = nil
+        let sharedCookieStorage = HTTPCookieStorage.shared
+        
+        for cookie in sharedCookieStorage.cookies! {
+            if cookie.name == "XSRF-TOKEN" { xsrfCookie = cookie}
+        }
+        
+        if let xsrfCookie = xsrfCookie {
+            request.setValue(xsrfCookie.value, forHTTPHeaderField: "X-XSRF-TOKEN")
+        }
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                DispatchQueue.main.async {
+                    completion(false, error)
+                }
+                return
+            }
+            
+            DispatchQueue.main.async {
+                completion(true, nil)
+            }
+        }
+        task.resume()
         
     }
 }
