@@ -355,7 +355,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="StudentPinCell" textLabel="TcG-tC-ymx" detailTextLabel="BqT-Gp-BC7" imageView="RcK-4y-vI5" style="IBUITableViewCellStyleSubtitle" id="gr1-5f-ZWy" userLabel="StudentSpotCell">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="tableCell" textLabel="TcG-tC-ymx" detailTextLabel="BqT-Gp-BC7" imageView="RcK-4y-vI5" style="IBUITableViewCellStyleSubtitle" id="gr1-5f-ZWy" userLabel="tableCell">
                                         <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gr1-5f-ZWy" id="2sz-75-38g">
@@ -412,9 +412,10 @@
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="HKd-5a-90q" id="V2Y-iK-EnW"/>
                         <outlet property="addSpotButton" destination="6tl-7t-Evt" id="IwP-Ev-fAM"/>
                         <outlet property="logoutButton" destination="nTA-BS-YvO" id="Axo-aB-2Le"/>
-                        <outlet property="tableView" destination="RpE-Mv-yLv" id="dZ1-iY-Beu"/>
+                        <outlet property="tableView" destination="RpE-Mv-yLv" id="Ex4-l2-Dx2"/>
                         <segue destination="dj1-ae-5MZ" kind="show" identifier="addSpot" id="W85-3z-Lro"/>
                     </connections>
                 </viewController>
