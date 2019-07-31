@@ -26,4 +26,6 @@ The user is possible to add their own data by posting a string that can be geoco
   fetch student location data from server 
 - Day 4
   make segue to connect FindSpotView, and connect data to tableView
+- Day 5
+  show data on TableView 
             
