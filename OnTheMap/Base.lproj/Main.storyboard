@@ -202,7 +202,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="gbt-RP-YMf">
                                 <rect key="frame" x="45" y="434" width="324" height="116"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7LU-aE-LZ4" userLabel="Email Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Location" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7LU-aE-LZ4" userLabel="spotTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="324" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="dP9-pp-uMS"/>
@@ -211,7 +211,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Website Link" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Abh-1p-SaJ" userLabel="Password Text Field">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter a Website Link" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Abh-1p-SaJ" userLabel="urlTextField">
                                         <rect key="frame" x="0.0" y="43" width="324" height="32"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="32" id="BAu-3u-Kzq"/>
@@ -231,6 +231,9 @@
                                                 <integer key="value" value="5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="findLocation:" destination="dj1-ae-5MZ" eventType="touchUpInside" id="dpn-Wd-Zyd"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -240,23 +243,30 @@
                                     <constraint firstAttribute="height" constant="65" id="To5-NB-UdP"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="93x-7g-1xH" userLabel="Activity Indicator">
+                                <rect key="frame" x="197" y="591" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="93x-7g-1xH" firstAttribute="centerX" secondItem="gbt-RP-YMf" secondAttribute="centerX" id="J3R-Hd-E8a"/>
                             <constraint firstItem="mCT-8U-Kxn" firstAttribute="trailing" secondItem="gbt-RP-YMf" secondAttribute="trailing" constant="45" id="UFB-Mw-ani"/>
                             <constraint firstItem="gbt-RP-YMf" firstAttribute="top" secondItem="uVW-9v-12w" secondAttribute="bottom" constant="41" id="W6L-Ic-2Km"/>
                             <constraint firstItem="gbt-RP-YMf" firstAttribute="leading" secondItem="mCT-8U-Kxn" secondAttribute="leading" constant="45" id="fjt-Gs-4un"/>
                             <constraint firstItem="uVW-9v-12w" firstAttribute="top" secondItem="mCT-8U-Kxn" secondAttribute="top" constant="240" id="lH6-fd-0Xy"/>
                             <constraint firstItem="uVW-9v-12w" firstAttribute="centerX" secondItem="fFp-m5-RGE" secondAttribute="centerX" id="mtV-95-mAe"/>
                             <constraint firstItem="uVW-9v-12w" firstAttribute="centerX" secondItem="gbt-RP-YMf" secondAttribute="centerX" id="prT-1c-ocs"/>
+                            <constraint firstItem="93x-7g-1xH" firstAttribute="top" secondItem="gbt-RP-YMf" secondAttribute="bottom" constant="41" id="xft-wG-Fia"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mCT-8U-Kxn"/>
                     </view>
                     <navigationItem key="navigationItem" title="On The Map" id="GR6-eb-1qR">
                         <barButtonItem key="backBarButtonItem" title="Back" id="x4Z-xj-RJt"/>
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Qzc-mr-Rsu"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="93x-7g-1xH" id="Ayx-lh-SXu"/>
+                        <outlet property="spotTextField" destination="7LU-aE-LZ4" id="z2y-Sf-Tj5"/>
+                        <outlet property="urlTextField" destination="Abh-1p-SaJ" id="3AQ-1c-ZOI"/>
                         <segue destination="Axf-xQ-Y8h" kind="show" identifier="FinishSpot" id="z8X-a3-iAX"/>
                     </connections>
                 </viewController>
@@ -267,7 +277,7 @@
         <!--Finish View Controller-->
         <scene sceneID="Na1-Qb-k3h">
             <objects>
-                <viewController id="Axf-xQ-Y8h" userLabel="Finish View Controller" customClass="FinishViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Axf-xQ-Y8h" userLabel="Finish View Controller" customClass="SpotMapViewController" customModule="OnTheMap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="L1Z-pJ-Myf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -276,7 +286,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="732"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GMr-09-ba3" userLabel="Finish">
-                                <rect key="frame" x="66" y="813" width="304" height="30"/>
+                                <rect key="frame" x="66" y="759" width="304" height="30"/>
                                 <color key="backgroundColor" red="0.079895339910000002" green="0.63936686519999997" blue="0.86835139989999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Finish">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -286,6 +296,9 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tappedFinish:" destination="Axf-xQ-Y8h" eventType="touchUpInside" id="J5r-uI-RH3"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -295,11 +308,14 @@
                             <constraint firstItem="GMr-09-ba3" firstAttribute="leading" secondItem="Mjt-tQ-FzJ" secondAttribute="leading" constant="66" id="G7E-yM-e8U"/>
                             <constraint firstItem="Mjt-tQ-FzJ" firstAttribute="trailing" secondItem="GMr-09-ba3" secondAttribute="trailing" constant="44" id="YOU-WO-sZ7"/>
                             <constraint firstItem="Sf4-sK-MTS" firstAttribute="leading" secondItem="L1Z-pJ-Myf" secondAttribute="leading" id="qYw-vV-sd1"/>
-                            <constraint firstItem="GMr-09-ba3" firstAttribute="top" secondItem="Mjt-tQ-FzJ" secondAttribute="top" constant="725" id="vp6-fZ-gWZ"/>
+                            <constraint firstItem="GMr-09-ba3" firstAttribute="top" secondItem="Mjt-tQ-FzJ" secondAttribute="top" constant="671" id="vp6-fZ-gWZ"/>
                             <constraint firstAttribute="trailing" secondItem="Sf4-sK-MTS" secondAttribute="trailing" id="yEV-zg-zWG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Mjt-tQ-FzJ"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Sf4-sK-MTS" id="PkF-jS-A5W"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yW0-Mq-fEf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -23,6 +23,7 @@ class SpotListViewController: UIViewController {
         
         self.tableView.dataSource = self
         self.tableView.delegate = self
+        self.tableView.reloadData()
         
         
     }
@@ -41,7 +42,8 @@ class SpotListViewController: UIViewController {
         let alertVC = UIAlertController(title: "Warning!", message: "You've already put your pin on the map.\nWould you like to overwrite it?", preferredStyle: .alert)
         
         alertVC.addAction(UIAlertAction(title: "Yes", style: .default, handler: { [unowned self] (_) in
-            self.performSegue(withIdentifier: "addSpot", sender: true)
+            self.performSegue(withIdentifier: "addSpot", sender: (true, self.studentLocArray))
+
         }))
         
         alertVC.addAction(UIAlertAction(title: "No", style: .default, handler: nil))
@@ -54,9 +56,10 @@ class SpotListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
         if segue.identifier == "addSpot" {
-
             let controller = segue.destination as! FindSpotViewController
-
+            let updateFlag = sender as? (Bool, [StudentLocation])
+            controller.updatePin = updateFlag?.0
+            controller.studentArray = updateFlag?.1
         }
     }
 

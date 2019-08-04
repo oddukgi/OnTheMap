@@ -159,6 +159,114 @@ class UdacityClient {
         task.resume()
         
     }
+    
+    
+    class func getUserData(completion: @escaping (UserData?, Error?) -> Void) {
+        
+        let task = URLSession.shared.dataTask(with: Endpoints.getUserData.url) { (data, response, error) in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            let range = 5..<data.count
+            let newData = data.subdata(in: range)
+            let decoder = JSONDecoder()
+            do {
+                let requestObject = try decoder.decode(UserData.self, from: newData)
+                DispatchQueue.main.async {
+                    print(newData)
+                    completion(requestObject, nil)
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+            
+        }
+        task.resume()
+        
+    }
+    
+    // Post Student Location
+    class func postStudentLoaction(postLocation: PostLocation, completion: @escaping (PostLocationResponse?, Error?) -> Void) {
+        
+        var request = URLRequest(url: Endpoints.postStudentLocation.url)
+        request.httpMethod = "POST"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body = postLocation
+        
+        let encoder = JSONEncoder()
+        request.httpBody = try! encoder.encode(body)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    return completion(nil, error)
+                }
+                return
+            }
+            let decoder = JSONDecoder()
+            do {
+                let responseObject = try decoder.decode(PostLocationResponse.self, from: data)
+                DispatchQueue.main.async {
+                    completion(responseObject, nil)
+                    print("true")
+                }
+            }
+            catch {
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }
+        
+        task.resume()
+        
+    }
+    
+    // put student location
+    class func putStudentLocation(objectID: String, postLocation: PostLocation, completion: @escaping (Bool, Error?) -> Void) {
+        var request = URLRequest(url: Endpoints.updateStudentLocation(objectID).url)
+        
+        print(request.description)
+        
+        request.httpMethod = "PUT"
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let body = postLocation
+        let encoder = JSONEncoder()
+        request.httpBody = try! encoder.encode(body)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {
+                DispatchQueue.main.async {
+                    return completion(false, error)
+                }
+                return
+            }
+            
+            let decoder = JSONDecoder()
+            
+            do {
+                let responseObj = try decoder.decode(PostLocationResponse.self, from: data)
+                DispatchQueue.main.async {
+                     print("\(responseObj)")
+                     completion(true, nil)
+                }
+                
+            }
+            catch {
+                // error
+                DispatchQueue.main.async {
+                    completion(false, nil)
+                }
+            }
+        }
+        task.resume()
+    
+    }
 }
 
 

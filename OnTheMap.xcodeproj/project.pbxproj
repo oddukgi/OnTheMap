@@ -10,12 +10,16 @@
 		8802C0E722EB02B20057368E /* UserLoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8802C0E622EB02B20057368E /* UserLoginResponse.swift */; };
 		8803352322EC39980001B2A9 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8803352222EC39980001B2A9 /* UIViewController+Extension.swift */; };
 		8814200A22E732810088A0B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8814200922E732810088A0B4 /* Assets.xcassets */; };
+		8815051C22F6F0C20060F697 /* PostLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8815051B22F6F0C20060F697 /* PostLocationResponse.swift */; };
+		8815051E22F6FF640060F697 /* PutLocationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8815051D22F6FF640060F697 /* PutLocationResponse.swift */; };
 		881CFD6622E9F44D0026F5BF /* StudentLocations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 881CFD6522E9F44D0026F5BF /* StudentLocations.swift */; };
+		883A442622F5B8A400E11874 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A442522F5B8A400E11874 /* UserData.swift */; };
+		883A442822F5BCB800E11874 /* PostLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883A442722F5BCB800E11874 /* PostLocation.swift */; };
 		8867415622EB40BD00811D7D /* StudentLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8867415522EB40BD00811D7D /* StudentLocation.swift */; };
+		8879A8A922F5769600296196 /* SpotMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8879A8A822F5769600296196 /* SpotMapViewController.swift */; };
 		888AAE1922EB26390049EF10 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888AAE1822EB26390049EF10 /* MapViewController.swift */; };
 		888AAE1B22EB26720049EF10 /* SpotListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888AAE1A22EB26720049EF10 /* SpotListViewController.swift */; };
 		888AAE1D22EB26B80049EF10 /* FindSpotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888AAE1C22EB26B80049EF10 /* FindSpotViewController.swift */; };
-		888AAE1F22EB26CB0049EF10 /* FinishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888AAE1E22EB26CB0049EF10 /* FinishViewController.swift */; };
 		888F25EB22E9A7AB00721EFF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888F25EA22E9A7AB00721EFF /* LoginViewController.swift */; };
 		888F25FF22E9B14E00721EFF /* UdacityClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 888F25FE22E9B14E00721EFF /* UdacityClient.swift */; };
 		889FD1FE22E712D900426521 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889FD1FD22E712D900426521 /* AppDelegate.swift */; };
@@ -28,12 +32,16 @@
 		8802C0E622EB02B20057368E /* UserLoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserLoginResponse.swift; sourceTree = "<group>"; };
 		8803352222EC39980001B2A9 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		8814200922E732810088A0B4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8815051B22F6F0C20060F697 /* PostLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocationResponse.swift; sourceTree = "<group>"; };
+		8815051D22F6FF640060F697 /* PutLocationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PutLocationResponse.swift; sourceTree = "<group>"; };
 		881CFD6522E9F44D0026F5BF /* StudentLocations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocations.swift; sourceTree = "<group>"; };
+		883A442522F5B8A400E11874 /* UserData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		883A442722F5BCB800E11874 /* PostLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocation.swift; sourceTree = "<group>"; };
 		8867415522EB40BD00811D7D /* StudentLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentLocation.swift; sourceTree = "<group>"; };
+		8879A8A822F5769600296196 /* SpotMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotMapViewController.swift; sourceTree = "<group>"; };
 		888AAE1822EB26390049EF10 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		888AAE1A22EB26720049EF10 /* SpotListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotListViewController.swift; sourceTree = "<group>"; };
 		888AAE1C22EB26B80049EF10 /* FindSpotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindSpotViewController.swift; sourceTree = "<group>"; };
-		888AAE1E22EB26CB0049EF10 /* FinishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishViewController.swift; sourceTree = "<group>"; };
 		888F25EA22E9A7AB00721EFF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		888F25FE22E9B14E00721EFF /* UdacityClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UdacityClient.swift; sourceTree = "<group>"; };
 		889FD1FA22E712D900426521 /* OnTheMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OnTheMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,8 +70,8 @@
 				888AAE1822EB26390049EF10 /* MapViewController.swift */,
 				888AAE1A22EB26720049EF10 /* SpotListViewController.swift */,
 				888AAE1C22EB26B80049EF10 /* FindSpotViewController.swift */,
-				888AAE1E22EB26CB0049EF10 /* FinishViewController.swift */,
 				8803352222EC39980001B2A9 /* UIViewController+Extension.swift */,
+				8879A8A822F5769600296196 /* SpotMapViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -71,8 +79,13 @@
 		8802FBC622E8631B00AC84C1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				888F25FE22E9B14E00721EFF /* UdacityClient.swift */,
+				883A442522F5B8A400E11874 /* UserData.swift */,
 				8820420022E8A39700AD3550 /* Request */,
 				8867415522EB40BD00811D7D /* StudentLocation.swift */,
+				883A442722F5BCB800E11874 /* PostLocation.swift */,
+				8815051B22F6F0C20060F697 /* PostLocationResponse.swift */,
+				8815051D22F6FF640060F697 /* PutLocationResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -88,7 +101,6 @@
 		8820420022E8A39700AD3550 /* Request */ = {
 			isa = PBXGroup;
 			children = (
-				888F25FE22E9B14E00721EFF /* UdacityClient.swift */,
 				881CFD6522E9F44D0026F5BF /* StudentLocations.swift */,
 				8802C0E622EB02B20057368E /* UserLoginResponse.swift */,
 			);
@@ -199,16 +211,20 @@
 			files = (
 				8803352322EC39980001B2A9 /* UIViewController+Extension.swift in Sources */,
 				888AAE1B22EB26720049EF10 /* SpotListViewController.swift in Sources */,
+				883A442822F5BCB800E11874 /* PostLocation.swift in Sources */,
 				8867415622EB40BD00811D7D /* StudentLocation.swift in Sources */,
 				888F25FF22E9B14E00721EFF /* UdacityClient.swift in Sources */,
+				883A442622F5B8A400E11874 /* UserData.swift in Sources */,
 				888AAE1D22EB26B80049EF10 /* FindSpotViewController.swift in Sources */,
 				8802C0E722EB02B20057368E /* UserLoginResponse.swift in Sources */,
 				881CFD6622E9F44D0026F5BF /* StudentLocations.swift in Sources */,
-				888AAE1F22EB26CB0049EF10 /* FinishViewController.swift in Sources */,
 				888F25EB22E9A7AB00721EFF /* LoginViewController.swift in Sources */,
 				889FD20022E712D900426521 /* ViewController.swift in Sources */,
+				8879A8A922F5769600296196 /* SpotMapViewController.swift in Sources */,
 				889FD1FE22E712D900426521 /* AppDelegate.swift in Sources */,
 				888AAE1922EB26390049EF10 /* MapViewController.swift in Sources */,
+				8815051E22F6FF640060F697 /* PutLocationResponse.swift in Sources */,
+				8815051C22F6F0C20060F697 /* PostLocationResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
