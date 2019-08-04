@@ -28,4 +28,7 @@ The user is possible to add their own data by posting a string that can be geoco
   make segue to connect FindSpotView, and connect data to tableView
 - Day 5
   show data on TableView 
+- Day 6,7,8
+  fill code on each view Controller, and test adding location 
+  2 bugs found
             
