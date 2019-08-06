@@ -98,7 +98,7 @@ class UdacityClient {
             url = Endpoints.getStudentLocation(0).url
         }
         
-        print("URL: \(url.absoluteString)")
+    
         let task = session.dataTask(with: url) { data, response, error in
             
          guard let data = data else {

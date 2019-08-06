@@ -61,7 +61,7 @@ class FindSpotViewController: UIViewController {
             let locationDetails = sender as!  (String, CLLocationCoordinate2D)
             controller.location = locationDetails.0
             controller.coordinate = locationDetails.1
-            controller.updatePin = updatePin
+            controller.updatePin = updatePin            
             controller.studentLocArray = studentArray
             
             print("prepare URL: \(mediaUrl)")

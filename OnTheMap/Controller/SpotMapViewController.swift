@@ -15,7 +15,7 @@ class SpotMapViewController: UIViewController {
 
     var location: String!
     var coordinate: CLLocationCoordinate2D!
-    var updatePin: Bool!
+    var updatePin: Bool! 
     var url: String!
     var studentLocArray: [StudentLocation]!
 
@@ -47,9 +47,9 @@ class SpotMapViewController: UIViewController {
                 return
             }
             
-            let firstName: String = "Sunmi"
-            let lastName: String = "Kang"
-            
+            var firstName: String = "Yoshimi"
+            var lastName: String = "Kang"
+     
             let studentLocationRequest = PostLocation(uniqueKey: userData.key, firstName: firstName, lastName: lastName, mapString: self.location, mediaURL: self.url, latitude: Float(self.coordinate.latitude), longitude: Float(self.coordinate.longitude))
             
             
@@ -64,6 +64,8 @@ class SpotMapViewController: UIViewController {
         UdacityClient.postStudentLoaction(postLocation: postLocationData) { (success,error) in
             if error != nil{
                 self.showAlert(title: "can't post new pin", message: "Error message :\n\(error?.localizedDescription ?? "can't post")")
+            } else {
+                self.navigationController?.popToRootViewController(animated: true)
             }
             
         }
@@ -76,6 +78,8 @@ class SpotMapViewController: UIViewController {
             
             if error  != nil{
                 self.showAlert(title: "can't post new pin", message: "Error message :\n\(error?.localizedDescription ?? "can't post")")
+            } else {
+                self.navigationController?.popToRootViewController(animated: true)
             }
     
         }

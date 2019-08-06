@@ -15,25 +15,65 @@ class SpotListViewController: UIViewController {
     
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var tableView: UITableView!
+    private var refreshControl = UIRefreshControl()
+    
     var studentLocArray = [StudentLocation]()
     var recordNum: Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshStudentPinList), for: .valueChanged)
+        
         self.tableView.dataSource = self
         self.tableView.delegate = self
-        self.tableView.reloadData()
-        
+        self.refreshStudentPinList()
         
     }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        // get student location
         self.recordNum = StudentsLocationData.studentsData.count
-        // Sorting students location array
-        studentLocArray.append(contentsOf: StudentsLocationData.studentsData.sorted(by: {$0.updatedAt > $1.updatedAt}))
+        self.refreshStudentPinList()
+       
+    }
+    @objc func refreshStudentPinList() {
+        //isDownloading(true)
         
+        UdacityClient.getStudentLocation(singleStudent: false, completion:{ (data, error) in
+          
+        guard let data = data else {
+            print(error?.localizedDescription ?? "")
+            return
+        }
+        StudentsLocationData.studentsData = data
+        self.studentLocArray.removeAll()
+        self.studentLocArray.append(contentsOf: StudentsLocationData.studentsData.sorted(by: {$0.updatedAt > $1.updatedAt}))
+
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+            
+           self.refreshControl.endRefreshing()
+        })
+    }
+    func getStudentData() {
+        UdacityClient.getStudentLocation(singleStudent: false, completion:{ (data, error) in
+            
+        DispatchQueue.main.async {
+            guard let data = data else {
+                print(error?.localizedDescription ?? "")
+                return
+            }
+            StudentsLocationData.studentsData = data
+            self.studentLocArray.removeAll()
+            self.studentLocArray.append(contentsOf: StudentsLocationData.studentsData.sorted(by: {$0.updatedAt > $1.updatedAt}))
+            self.tableView.reloadData()
+            
+            }
+        })
     }
     
     @IBAction func addSpotTapped(_ sender: Any) {
